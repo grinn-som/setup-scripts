@@ -5,6 +5,8 @@ Setup scripts for building linux
 
 ##############################################################
 
+Quick start:
+
 git clone git://github.com/grinn-som/setup-scripts.git
 cd setup-scripts
 MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite
