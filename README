@@ -1,0 +1,36 @@
+setup-scripts
+=============
+
+Setup scripts for building linux
+
+##############################################################
+
+git clone git://github.com/grinn-som/setup-scripts.git
+cd setup-scripts
+MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite
+MACHINE=chilisom-evb-lite ./oebb.sh update
+. ~/.oe/environment-angstromv2012.05
+bitbake chilisom-evb
+
+##############################################################
+
+# Get setup scripts from git repository:
+git clone git://github.com/grinn-som/setup-scripts.git
+
+# In directory setup-scripts, setup your machine configuration:
+MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite
+
+# Update your repository info:
+MACHINE=chilisom-evb-lite ./oebb.sh update
+
+# Before using bitbake, you must setup your enviroment variables:
+. ~/.oe/environment-angstromv2012.05
+
+# Compile linux kernel:
+bitbake virtual/kernel
+
+# Build the entire system:
+bitbake chilisom-evb
+
+# Customize kernel configuration:
+bitbake -c menuconfig virtual/kernel
