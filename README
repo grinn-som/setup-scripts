@@ -12,7 +12,7 @@ cd setup-scripts
 MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite
 MACHINE=chilisom-evb-lite ./oebb.sh update
 . ~/.oe/environment-angstromv2012.05
-bitbake chilisom-evb
+bitbake chilisom-evb-image
 
 ##############################################################
 
@@ -32,7 +32,7 @@ MACHINE=chilisom-evb-lite ./oebb.sh update
 bitbake virtual/kernel
 
 # Build the entire system:
-bitbake chilisom-evb
+bitbake chilisom-evb-image
 
 # Customize kernel configuration:
 bitbake -c menuconfig virtual/kernel
