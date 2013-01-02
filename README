@@ -5,7 +5,17 @@ Setup scripts for building linux
 
 ##############################################################
 
-Quick start:
+Quick start (GISBC):
+
+git clone git://github.com/grinn-som/setup-scripts.git
+cd setup-scripts
+MACHINE=gisbc ./oebb.sh config gisbc
+MACHINE=gisbc ./oebb.sh update
+. ~/.oe/environment-angstromv2012.05
+bitbake gisbc-image
+
+
+Quick start (ChiliSOM EVB Lite):
 
 git clone git://github.com/grinn-som/setup-scripts.git
 cd setup-scripts
@@ -20,10 +30,12 @@ bitbake chilisom-evb-image
 git clone git://github.com/grinn-som/setup-scripts.git
 
 # In directory setup-scripts, setup your machine configuration:
-MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite
+MACHINE=gisbc ./oebb.sh config gisbc                          # GISBC
+MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite  # ChiliSOM EVB Lite
 
 # Update your repository info:
-MACHINE=chilisom-evb-lite ./oebb.sh update
+MACHINE=chilisom-evb-lite ./oebb.sh update   # GISBC
+MACHINE=chilisom-evb-lite ./oebb.sh update   # ChiliSOM EVB Lite
 
 # Before using bitbake, you must setup your enviroment variables:
 . ~/.oe/environment-angstromv2012.05
@@ -32,7 +44,8 @@ MACHINE=chilisom-evb-lite ./oebb.sh update
 bitbake virtual/kernel
 
 # Build the entire system:
-bitbake chilisom-evb-image
+bitbake gisbc-image         # GISBC
+bitbake chilisom-evb-image  # ChiliSOM EVB Lite
 
 # Customize kernel configuration:
 bitbake -c menuconfig virtual/kernel
