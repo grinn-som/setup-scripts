@@ -34,7 +34,7 @@ MACHINE=gisbc ./oebb.sh config gisbc                          # GISBC
 MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite  # ChiliSOM EVB Lite
 
 # Update your repository info:
-MACHINE=chilisom-evb-lite ./oebb.sh update   # GISBC
+MACHINE=gisbc ./oebb.sh update   # GISBC
 MACHINE=chilisom-evb-lite ./oebb.sh update   # ChiliSOM EVB Lite
 
 # Before using bitbake, you must setup your enviroment variables:
