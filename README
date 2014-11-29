@@ -5,6 +5,17 @@ Setup scripts for building linux
 
 ##############################################################
 
+Quick start (chiliboard):
+
+git clone git://github.com/grinn-som/setup-scripts.git
+cd setup-scripts
+
+MACHINE=chiliboard ./oebb.sh config chiliboard
+MACHINE=chiliboard ./oebb.sh update
+
+. ~/.oe/environment-angstromv2012.05
+bitbake chiliboard-image
+
 Quick start (GISBC):
 
 git clone git://github.com/grinn-som/setup-scripts.git
@@ -31,7 +42,6 @@ MACHINE=hmi_gcs2 ./oebb.sh update
 . ~/.oe/environment-angstromv2012.05
 bitbake hmi-image
 
-
 Quick start (ChiliSOM EVB Lite):
 
 git clone git://github.com/grinn-som/setup-scripts.git
@@ -47,12 +57,14 @@ bitbake chilisom-evb-image
 git clone git://github.com/grinn-som/setup-scripts.git
 
 # In directory setup-scripts, setup your machine configuration:
+MACHINE=chiliboard ./oebb.sh config chiliboard                # chiliboard
 MACHINE=gisbc ./oebb.sh config gisbc                          # GISBC
 MACHINE=chilisom-evb-lite ./oebb.sh config chilisom-evb-lite  # ChiliSOM EVB Lite
 MACHINE=hmi ./oebb.sh config hmi                              # HMI GCS1 (DDR2)
 MACHINE=hmi_gcs2 ./oebb.sh config hmi_gcs2                    # HMI GCS2 (DDR3)
 
 # Update your repository info:
+MACHINE=chiliboard ./oebb.sh update                           # chiliboard
 MACHINE=gisbc ./oebb.sh update                                # GISBC
 MACHINE=chilisom-evb-lite ./oebb.sh update                    # ChiliSOM EVB Lite
 MACHINE=hmi ./oebb.sh update                                  # HMI GCS1 (DDR2)
@@ -65,6 +77,7 @@ MACHINE=hmi_gcs2 ./oebb.sh update                             # HMI GCS2 (DDR3)
 bitbake virtual/kernel
 
 # Build the entire system:
+bitbake chiliboard-image    # chiliboard
 bitbake gisbc-image         # GISBC
 bitbake chilisom-evb-image  # ChiliSOM EVB Lite
 bitbake hmi-image           # HMI
